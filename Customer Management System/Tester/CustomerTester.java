@@ -81,13 +81,9 @@ public class CustomerTester {
 						Collections.sort(data, new Comparator<Customer>() {
 						public int compare(Customer c1, Customer c2) {
 							int relVal=c1.getDob().compareTo(c2.getDob());// if output is -1 then dob is before and if 1 then dob is after so there are no duplicate dates
-									if(relVal==0) {
-										if(c1.getRegAmount()<c2.getRegAmount())
-											return -1;
-										if(c1.getRegAmount()==c2.getRegAmount())
-											return 0;
-										return 1;
-									}
+									if(relVal==0) 
+										return ((Double)c1.getRegAmount()).compareTo(c2.getRegAmount);
+									
 							return relVal;
 						}
 						} );;
