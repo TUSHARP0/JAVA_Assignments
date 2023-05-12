@@ -11,7 +11,10 @@ public class EmpTester {
 
 	public static void main(String[] args) {
 		try(Scanner sc = new Scanner(System.in)){
-			Map<String,Emp> map=populatedMap();
+			System.out.println("Enter File Name");
+			String filename=sc.next();
+			Map<String,Emp> map=restoreFile(filename);
+			System.out.println("Restored Map"+map);
 			boolean exit=false;
 			while(!exit) {
 				System.out.println("1. Hire Employee  2. Display Employees  3. Promote  4. Delete  5. Sort Employee as per join Date  0. Exit and store the file");
@@ -51,6 +54,7 @@ public class EmpTester {
 					
 				case 0:
 					exit=true;
+					storeFile(filename,map);
 					break;
 					
 				}
